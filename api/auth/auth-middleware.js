@@ -49,6 +49,7 @@ const checkUsernameExists = (req, res, next) => {
       if (!users[0]) {
         next({ status: 401, message: "Invalid credentials" });
       } else {
+        req.user = users[0];
         next();
       }
     })
