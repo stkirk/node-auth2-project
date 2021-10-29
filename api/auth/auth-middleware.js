@@ -31,6 +31,8 @@ const only = (role_name) => (req, res, next) => {
 
     Pull the decoded token from the req object, to avoid verifying it again!
   */
+  console.log("checking role...");
+  next();
 };
 
 const checkUsernameExists = (req, res, next) => {
@@ -41,6 +43,8 @@ const checkUsernameExists = (req, res, next) => {
       "message": "Invalid credentials"
     }
   */
+  console.log("checking username exists...");
+  next();
 };
 
 const validateRoleName = (req, res, next) => {
@@ -62,6 +66,8 @@ const validateRoleName = (req, res, next) => {
       "message": "Role name can not be longer than 32 chars"
     }
   */
+  console.log("checking role name legit...");
+  next();
 };
 
 module.exports = {
