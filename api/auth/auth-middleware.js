@@ -43,8 +43,12 @@ const checkUsernameExists = (req, res, next) => {
       "message": "Invalid credentials"
     }
   */
-  console.log("checking username exists...");
-  next();
+  const { username } = req.body;
+  if (!username) {
+    next({ status: 401, message: "Invalid credentials" });
+  } else {
+    next();
+  }
 };
 
 const validateRoleName = (req, res, next) => {
